@@ -1,0 +1,118 @@
+﻿<Window x:Class="Practice.NewStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice"
+        mc:Ignorable="d"
+        Title="NewStudent" Height="550" Width="900" ResizeMode="NoResize"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="Margin" Value="50,10,10,5"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid>
+        <!--region format grid-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="600*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--endregion-->
+
+        <!--region header-->
+        <Border Grid.Row="0" Grid.ColumnSpan="2" BorderThickness="0,0,0,3" BorderBrush="#FF09EAEA" Margin="0,0,0,5" Background="#FF9DF0FD"/>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Create Student" FontSize="24" Margin="10,0,10,10" HorizontalAlignment="Center"/>
+        <!--endregion-->
+
+        <!--region Student ID-->
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Student ID*"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=StudentID, ValidatesOnDataErrors=True}" Margin="5" TextWrapping="NoWrap"/>
+        <!--endregion-->
+
+        <!--region First Name-->
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="First Name*"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=FirstName, ValidatesOnDataErrors=True}" Margin="5" TextWrapping="NoWrap"/>
+        <!--endregion-->
+
+        <!--region Last Name-->
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Last Name*"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=LastName, ValidatesOnDataErrors=True}" Margin="5" TextWrapping="NoWrap"/>
+        <!--endregion-->
+
+        <!--region Birthdate-->
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Birthdate*"/>
+        <DatePicker Grid.Row="4" Grid.Column="1" Margin="5" SelectedDate="{Binding Path=Birthdate, ValidatesOnDataErrors=True}"/>
+        <!--endregion-->
+
+        <!--region Gender-->
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Gender"/>
+        <Grid Grid.Row="5" Grid.Column="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--Male-->
+            <RadioButton Grid.Column="0" GroupName="Gender" Content="Male" HorizontalAlignment="Center" Margin="5"/>
+            <!--Female-->
+            <RadioButton Grid.Column="1" GroupName="Gender" Content="Female" HorizontalAlignment="Center" Margin="5"/>
+        </Grid>
+        <!--endregion-->
+
+        <!--region Address-->
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Address"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=Address}" Margin="5" TextWrapping="NoWrap"/>
+        <!--endregion-->
+
+        <!--region Email-->
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Email"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding Path=Email}" Margin="5" TextWrapping="NoWrap"/>
+        <!--endregion-->
+
+        <!--region Class-->
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Class"/>
+        <ComboBox Grid.Row="8" Grid.Column="1" Margin="5"/>
+        <!--endregion-->
+
+        <!--region Tool bar-->
+        <Grid Grid.Row="9" Grid.ColumnSpan="2" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!--button Save-->
+            <Button Grid.Column="2" Content="Save" Background="#FF1ADCCB" Margin="0,0,15,0" Command="{Binding ButtonSave}"/>
+            <!--button Cancel-->
+            <Button Grid.Column="3" Content="Cancel" Margin="15,0,0,0" />
+        </Grid>
+        <!--endregion-->
+    </Grid>
+</Window>
